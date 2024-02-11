@@ -1,0 +1,20 @@
+{
+  "name": "price-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.1",
+    "install": "^0.13.0",
+    "npm": "^10.4.0",
+    "param": "^1.1.0",
+    "vietqr": "^1.1.9"
+  }
+}
