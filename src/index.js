@@ -1,5 +1,6 @@
 const { Client, GatewayIntentBits, EmbedBuilder, Embed, ActivityType, ButtonBuilder, ButtonStyle, StringSelectMenuBuilder, StringSelectMenuOptionBuilder, ActionRowBuilder, Component } = require ('discord.js');
 const Discord = require("discord.js")
+const keepAliveServer = require('./keep_alive.js');
 require('dotenv').config();
 require('./commands/commands')
 const client = new Client({ intents: 
