@@ -24,10 +24,30 @@ client.on('interactionCreate', async (interaction) => {
   if (!interaction.isCommand()) return;
 
   if (interaction.commandName === 'thanhtoan') {
-    vietQR.getBanks().then((banks)=>{console.log(banks)})
-    .catch((err)=>{});
+    try {
+      // Generate QR code
+      const qrCodeData = await vietQR.genQRCodeBase64({
+        bank: '970415',
+        accountName: 'QUY VAC XIN PHONG CHONG COVID',
+        accountNumber: '113366668888',
+        amount: '79000',
+        memo: 'Ung Ho Quy Vac Xin',
+        template: 'qr_only',
+      });
+
+      // Send the QR code as an image
+      interaction.reply({
+        content: 'Here is your QR code:',
+        files: [
+          { name: 'qrcode.png', content: qrCodeData },
+        ],
+      });
+    } catch (error) {
+      console.error(error);
+      interaction.reply('Error generating QR code.');
+    }
   }
 });
 
 // Replace 'YOUR_DISCORD_TOKEN' with your actual Discord bot token
-client.login('MTIwMjIzMDg5MDg1NjcxNDMyMA.GJnzNP.KAwX0fxIk8UH7cdzMSjfdc7bqg2XLzsWpBsmvg');
+client.login('MTAyNjA0MTgyNjMyODcxOTM3MQ.GK2ncK.tHSCMAR-baKXAnd545LmhD8uZtz4ys-x3njjIU');

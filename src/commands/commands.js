@@ -7,6 +7,10 @@ const commands = [
     name: 'price',
     description: 'Bảng giá sản phẩm LegitVN',
   },
+  {
+    name: 'thanhtoan',
+    description: 'Tạo Mã QrCodes',
+  },
 
 ];
 

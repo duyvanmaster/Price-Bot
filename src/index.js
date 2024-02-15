@@ -1,8 +1,8 @@
 const { Client, GatewayIntentBits, EmbedBuilder, Embed, ActivityType, ButtonBuilder, ButtonStyle, StringSelectMenuBuilder, StringSelectMenuOptionBuilder, ActionRowBuilder, Component } = require ('discord.js');
 const Discord = require("discord.js")
-const keepAliveServer = require('./keep_alive.js');
 require('dotenv').config();
 require('./commands/commands')
+require('./commands/thanhtoan')
 const client = new Client({ intents: 
     [
         GatewayIntentBits.Guilds,
@@ -62,8 +62,8 @@ client.on('interactionCreate', async interaction => {
       embeds:
       [
         new EmbedBuilder()
-        .setTitle('Bảng giá LegitVN <a:moneyprice:1203214243105607740>')
-        .setDescription('**<a:dot_red:1202952521757499462> Giảm giá 30% tất cả sản phẩm từ 10 - 14/2**')
+        .setTitle('<a:moneyprice:1203214243105607740> Bảng giá LegitVN')
+        .setDescription('<a:dot_red:1202952521757499462> Lựa chọn sản phẩm dưới menu để biết chi tiết về giá')
         .setImage('https://cdn.discordapp.com/attachments/1161271813460996126/1204309215582232616/gamesensepricehigh.gif?ex=65d4435b&is=65c1ce5b&hm=95bc8e4397e6bd297079ce6b9609de640364e42ed8246e19cf79e5ca26fef84d&') // Thêm hình ảnh
         .setColor('#d8427f')
         .setTimestamp()
@@ -79,19 +79,6 @@ client.on('interactionCreate', async interaction => {
 client.on('interactionCreate', async interaction => {
     if (!interaction.isStringSelectMenu()) return;
     if (interaction.values == 'regeditprice') {
-      {
-        const channel = await client.channels.fetch('1203210652630384661');
-
-        // Gửi thông tin log đến kênh
-        await channel.send({
-          content: `**Thông tin Select Menu:**\n\n` +
-            `- Select menu được chọn: ${interaction.customId}\n` +
-            `- Tác giả: ${interaction.user.tag}\n` +
-            `- Kênh: ${interaction.channel.name}\n` +
-            `- Giá trị được chọn: ${interaction.values}\n` +
-            `- **Thời gian: ${new Date().toLocaleString()}**`
-        });
-      }
       const newRow = new ActionRowBuilder()
       .addComponents(
         new StringSelectMenuBuilder()
@@ -114,7 +101,7 @@ client.on('interactionCreate', async interaction => {
         embeds: [      
           new EmbedBuilder()
           .setTitle('Bảng giá Regedit <:regedit:1066225725574742126>')
-          .setDescription('**<a:dot_red:1202952521757499462> Regedit Limited: ~~600.000đ~~ ```yaml\n300.000đ```\n<a:dot_red:1202952521757499462> Regedit Config: ~~800.000đ~~ ```yaml\n560.000đ```**')
+          .setDescription('**<a:dot_red:1202952521757499462> Regedit Limited: ~~600.000đ~~ ```yaml\n300.000đ```\n<a:dot_red:1202952521757499462> Regedit Config: ```yaml\n800.000đ```**')
           .setColor('#42e3ff')
           .setTimestamp()
           .setFooter({ text: 'LegitVN | The best or nothing'})],
@@ -142,14 +129,13 @@ client.on('interactionCreate', async interaction => {
             value: '3tools',
             emoji: '1066226152798167080'
           },
-          
         ])
     );
     await interaction.reply({
       embeds: [      
         new EmbedBuilder()
         .setTitle('Bảng giá Tối Ưu <:batch:1066226152798167080>')
-        .setDescription('<a:dot_red:1202952521757499462> **Tối Ưu + Setup All Emulator V1.2.1: ~~300.000đ~~```yaml\n150.000đ```\n<a:dot_red:1202952521757499462> FixLag - Tools Boost FPS (3 Tools): ~~60.000đ~~ ```yaml\n42.000đ```**')
+        .setDescription('<a:dot_red:1202952521757499462> **Tối Ưu + Setup All Emulator V1.2.1: ~~600.000đ~~```yaml\n150.000đ```\n<a:dot_red:1202952521757499462> FixLag - Tools Boost FPS (3 Tools)```yaml\n60.000đ```**')
         .setColor('#ffffff')
         .setTimestamp()
         .setFooter({ text: 'LegitVN | The best or nothing'})],
@@ -178,17 +164,17 @@ client.on('interactionCreate', async interaction => {
             emoji: '1203229939436879872'
           },
           {
-            label: 'Headlock',
+            label: 'FixRecoil V4',
             value: 'headlock',
             emoji: '1203229939436879872'
-          }
+          },
         ])
     );
     await interaction.reply({
       embeds: [      
         new EmbedBuilder()
         .setTitle('Bảng giá FixRecoil <:terminal:1203229939436879872>')
-        .setDescription('<a:dot_red:1202952521757499462> **FixRecoil V3: ~~150.000đ~~ ```yaml\n105.000đ```\n<a:dot_red:1202952521757499462> FixRecoil V4: ~~300.000đ~~ ```yaml\n210.000đ```\n<a:dot_red:1202952521757499462> Headlock:```yaml\n300.000đ```**')
+        .setDescription('<a:dot_red:1202952521757499462> **FixRecoil V3: ```yaml\n150.000đ```\n<a:dot_red:1202952521757499462> FixRecoil V4:```yaml\n300.000đ```\n<a:dot_red:1202952521757499462> Headlock:```yaml\n300.000đ```**')
         .setColor('#000000')
         .setTimestamp()
         .setFooter({ text: 'LegitVN | The best or nothing'})],
@@ -240,7 +226,7 @@ client.on('interactionCreate', async interaction => {
       embeds: [      
         new EmbedBuilder()
         .setTitle('Bảng giá Panel <:exe:1066226154727542805>')
-        .setDescription('<a:dot_red:1202952521757499462> **Panel Aimbot: ~~450.000đ~~ ```yaml\n315.000đ```\n<a:dot_red:1202952521757499462> Panel Aimlock UMP: ~~600.000đ~~ ```yaml\n420.000đ```\n<a:dot_red:1202952521757499462> Panel Bypass:```yaml\nComming Soon...```\n<a:dot_red:1202952521757499462> Panel Sniper H4X: ~~300.000đ~~ ```yaml\n210.000đ```\n<a:dot_red:1202952521757499462> Panel Legit Safe:```yaml\nComming Soon...```\n<a:dot_red:1202952521757499462>Panel Custom FPS: ~~250.000đ~~ ```yaml\n175.000đ```**')
+        .setDescription('<a:dot_red:1202952521757499462> **Panel Aimbot: ```yaml\n450.000đ```\n<a:dot_red:1202952521757499462> Panel Aimlock UMP:```yaml\n600.000đ```\n<a:dot_red:1202952521757499462> Panel Bypass:```yaml\nComming Soon...```\n<a:dot_red:1202952521757499462> Panel Sniper H4X:```yaml\n300.000đ```\n<a:dot_red:1202952521757499462> Panel Legit Safe:```yaml\nComming Soon...```\n<a:dot_red:1202952521757499462>Panel Custom FPS:```yaml\n250.000đ```**')
         .setColor('#4affdb')
         .setTimestamp()
         .setFooter({ text: 'LegitVN | The best or nothing'})],
@@ -277,24 +263,24 @@ client.on('interactionCreate', async interaction => {
     }
     else if(interaction.values == "3tools") {
       interaction.reply({
-        content:"**<:batch:1066226152798167080>  FixLag - Tools Boost FPS (3 Tools)**\n- Giá: ~~60.000đ~~ __42.000đ__\n- Support 2 giả lập phổ biến và tốt nhất: Bluestacks, MsiPlayer\n- Hỗ trợ cài đặt và tư vấn nhiệt tình tại <#1069964275046682705>",
+        content:"**<:batch:1066226152798167080>  FixLag - Tools Boost FPS (3 Tools)**\n- Giá: __60.000đ__\n- Support 2 giả lập phổ biến và tốt nhất: Bluestacks, MsiPlayer\n- Hỗ trợ cài đặt và tư vấn nhiệt tình tại <#1069964275046682705>",
         ephemeral : true})
     }
 
     // Fixreocil options
     else if(interaction.values == "frv3") {
       interaction.reply({
-        content:"**<:terminal:1203229939436879872>  FixRecoil V3**\n- Giá: ~~150.000đ~~ __105.000đ__\n- Support 2 giả lập phổ biến và tốt nhất: Bluestacks, MsiPlayer\n- Hỗ trợ cài đặt và tư vấn nhiệt tình tại <#1069964275046682705>",
+        content:"**<:terminal:1203229939436879872>  FixRecoil V3**\n- Giá: __150.000đ__\n- Support 2 giả lập phổ biến và tốt nhất: Bluestacks, MsiPlayer\n- Hỗ trợ cài đặt và tư vấn nhiệt tình tại <#1069964275046682705>",
         ephemeral : true})
     }
     else if(interaction.values == "frv4") {
       interaction.reply({
-        content:"**<:terminal:1203229939436879872>  FixRecoil V4**\n- Giá: ~~300.000đ~~ __210.000đ__\n- Support 2 giả lập phổ biến và tốt nhất: Bluestacks, MsiPlayer\n- Hỗ trợ cài đặt và tư vấn nhiệt tình tại <#1069964275046682705>",
+        content:"**<:terminal:1203229939436879872>  FixRecoil V4**\n- Giá: __300.000đ__\n- Support 2 giả lập phổ biến và tốt nhất: Bluestacks, MsiPlayer\n- Hỗ trợ cài đặt và tư vấn nhiệt tình tại <#1069964275046682705>",
         ephemeral : true})
     }
     else if(interaction.values == "headlock") {
       interaction.reply({
-        content:"**<:terminal:1203229939436879872>  Headlock**\n- Giá: ~~300.000đ~~ __210.000đ__\n- Support 2 giả lập phổ biến và tốt nhất: Bluestacks, MsiPlayer\n- Hỗ trợ cài đặt và tư vấn nhiệt tình tại <#1069964275046682705>",
+        content:"**<:terminal:1203229939436879872>  Headlock**\n- Giá: __300.000đ__\n- Support 2 giả lập phổ biến và tốt nhất: Bluestacks, MsiPlayer\n- Hỗ trợ cài đặt và tư vấn nhiệt tình tại <#1069964275046682705>",
         ephemeral : true})
     }
 
@@ -304,7 +290,7 @@ client.on('interactionCreate', async interaction => {
         [
           new EmbedBuilder()
           .setTitle('<a:zerotwohype:1086612118331195484> **Panel Aimbot**')
-          .setDescription('<a:dot_red:1202952521757499462> ~~450.000đ~~ **Giá: 315.000đ**\n\n<a:dot_red:1202952521757499462> Tạo <#1069964275046682705> để được hỗ trợ chi tiết thêm về sản phẩm.')
+          .setDescription('<a:dot_red:1202952521757499462> **Giá: 450.000đ**\n\n<a:dot_red:1202952521757499462> Tạo <#1069964275046682705> để được hỗ trợ chi tiết thêm về sản phẩm.')
           .setImage('https://cdn.discordapp.com/attachments/1161271813460996126/1203995590195806228/image.png') // Thêm hình ảnh
           .setColor('#42e3ff')
           .setTimestamp()
@@ -317,7 +303,7 @@ client.on('interactionCreate', async interaction => {
         [
           new EmbedBuilder()
           .setTitle('<a:zerotwohype:1086612118331195484> **Aimlock UMP**')
-          .setDescription('<a:dot_red:1202952521757499462> ~~600.000đ~~ **Giá: 420.000đ**\n\n<a:dot_red:1202952521757499462> Tạo <#1069964275046682705> để được hỗ trợ chi tiết thêm về sản phẩm.')
+          .setDescription('<a:dot_red:1202952521757499462> **Giá: 600.000đ**\n\n<a:dot_red:1202952521757499462> Tạo <#1069964275046682705> để được hỗ trợ chi tiết thêm về sản phẩm.')
           .setImage('https://cdn.discordapp.com/attachments/1076843153862180864/1165610903723577374/image.png') // Thêm hình ảnh
           .setColor('#42e3ff')
           .setTimestamp()
@@ -334,7 +320,7 @@ client.on('interactionCreate', async interaction => {
         [
           new EmbedBuilder()
           .setTitle('<a:zerotwohype:1086612118331195484> **Panel Snip H4X**')
-          .setDescription('<a:dot_red:1202952521757499462> ~~300.000đ~~ **Giá: 210.000đ**\n\n<a:dot_red:1202952521757499462> Video test **Panel Snip H4X**: https://discord.com/channels/1053835122530590781/1111966282343002172/1202890496633208883\n\n<a:dot_red:1202952521757499462> Tạo <#1069964275046682705> để được hỗ trợ chi tiết thêm về sản phẩm.')
+          .setDescription('<a:dot_red:1202952521757499462> **Giá: 300.000đ**\n\n<a:dot_red:1202952521757499462> Video test **Panel Snip H4X**: https://discord.com/channels/1053835122530590781/1111966282343002172/1202890496633208883\n\n<a:dot_red:1202952521757499462> Tạo <#1069964275046682705> để được hỗ trợ chi tiết thêm về sản phẩm.')
           //.setImage('https://cdn.discordapp.com/attachments/1076843153862180864/1165610903723577374/image.png?ex=65d1e83f&is=65bf733f&hm=e5f5fcd747c2e258881ae33e8ae0fb01b61640ac759907aa6db17b489621b5cd&') // Thêm hình ảnh
           .setColor('#42e3ff')
           .setTimestamp()
@@ -350,7 +336,7 @@ client.on('interactionCreate', async interaction => {
         [
           new EmbedBuilder()
           .setTitle('<a:zerotwohype:1086612118331195484> **Custom FPS**')
-          .setDescription('<a:dot_red:1202952521757499462> ~~250.000đ~~ **Giá: 175.000đ**\n\n<a:dot_red:1202952521757499462> Tạo <#1069964275046682705> để được hỗ trợ chi tiết thêm về sản phẩm.')
+          .setDescription('<a:dot_red:1202952521757499462> **Giá: 250.000đ**\n\n<a:dot_red:1202952521757499462> Tạo <#1069964275046682705> để được hỗ trợ chi tiết thêm về sản phẩm.')
           .setImage('https://cdn.discordapp.com/attachments/1076843153862180864/1201075215292178462/Untitled-1.jpg') // Thêm hình ảnh
           .setColor('#42e3ff')
           .setTimestamp()
