@@ -2,7 +2,6 @@ const { Client, GatewayIntentBits, EmbedBuilder, Embed, ActivityType, ButtonBuil
 const Discord = require("discord.js")
 require('dotenv').config();
 require('./commands/commands')
-require('./commands/thanhtoan')
 const client = new Client({ intents: 
     [
         GatewayIntentBits.Guilds,
