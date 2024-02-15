@@ -50,4 +50,4 @@ client.on('interactionCreate', async (interaction) => {
 });
 
 // Replace 'YOUR_DISCORD_TOKEN' with your actual Discord bot token
-client.login('MTAyNjA0MTgyNjMyODcxOTM3MQ.GK2ncK.tHSCMAR-baKXAnd545LmhD8uZtz4ys-x3njjIU');
+client.login('MTIwMjIzMDg5MDg1NjcxNDMyMA.GxirCP.hsjLUyDKsN5aPXzFc1i7Kv9S5u6gLtmn62-nWI');
