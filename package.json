@@ -13,6 +13,7 @@
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.1",
     "install": "^0.13.0",
+    "interaction": "^0.0.1",
     "npm": "^10.4.0",
     "param": "^1.1.0",
     "vietqr": "^1.1.9"

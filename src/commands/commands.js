@@ -7,11 +7,6 @@ const commands = [
     name: 'price',
     description: 'Bảng giá sản phẩm LegitVN',
   },
-  {
-    name: 'thanhtoan',
-    description: 'Tạo Mã QrCodes',
-  },
-
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
