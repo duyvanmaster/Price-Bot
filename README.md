@@ -3,7 +3,7 @@
 
 
 ![Discord.js ticket bot](https://i.imgur.com/0udRy3r.png)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FSayrix%2FTicket-Bot.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FSayrix%2FTicket-Bot/refs/branch/main/1f697957b606810be09fce49ff5e4a6dd9d2b499/preview)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fduyvanmaster%2FPrice-Bot.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fduyvanmaster%2FPrice-Bot?ref=badge_shield&issueType=license)
 ## Discord
 
 You can come on the discord: [Join server](https://discord.gg/legitvn)
