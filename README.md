@@ -11,7 +11,6 @@ To run this version, please follow these steps:
 TOKEN = Your bot token
 GUILD_ID = Your server discord id
 CLIENT_ID = Your bot id
-
 ```
 
 ### Step 3: Run the project
